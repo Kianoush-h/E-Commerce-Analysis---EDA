@@ -155,15 +155,22 @@ print(group_category)
 # PART 3: Top 10 Seller 
 # =============================================================================
 
+sellers_data = pd.read_csv('data/olist_sellers_dataset.csv')
+
+# First seller dataset will be merged with the product orders data.
+
+seller_products = pd.merge(product_orders, sellers_data, on="seller_id")
+seller_products.info()
 
 
 
+seller_products['seller_id_shorten'] = seller_products['seller_id'].str[-6:]
 
 
 
-
-
-
+plt.figure(figsize=(20,10))
+seller_products['seller_id_shorten'].value_counts()[:10].plot.pie(autopct='%1.1f%%', shadow=True, startangle=90, cmap='tab20')
+plt.title("Top 10 Seller",size=14, weight='bold')
 
 
 

@@ -24,3 +24,21 @@ Above analysis made by orders, geolocation, payments, seller, and products datas
 
 ![Image 4](./plots/Top 10 Product.png)
 *The above graph shows the Top 10 products. Top 3 products have a significant difference from the others. Because of the data information, we can't say about what are these products. But we can assume about their category.*
+
+
+
+![Image 5](./plots/Top 10 Seller.png)
+*Above pie chart shows the Top 10 Seller. First 3 sellers have close proportions.*
+
+
+
+
+
+
+
+
+
+
+
+
+
