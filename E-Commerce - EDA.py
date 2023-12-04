@@ -64,7 +64,7 @@ order_data_head = order_data.head(10)
 
 
 # =============================================================================
-# PART 2: Feature Enginering with Time
+# PART 1-2: Feature Enginering with Time
 # =============================================================================
 
 '''' Since, missing values' proportion is around 3%, 
@@ -82,21 +82,30 @@ order_data['estimate_time'] = pd.to_datetime(order_data['order_estimated_deliver
 
 # Weekly feature created based on order delivered customer date
 
-order_data['weekly']=pd.to_datetime(order_data['order_delivered_customer_date'],
-                                    format='%Y-%m-%d').dt.week
+order_data['weekly'] = pd.to_datetime(order_data['order_delivered_customer_date'], format='%Y-%m-%d').dt.week
+
 # Yearly feature created based on order delivered customer date
 
-order_data['yearly']=pd.to_datetime(order_data['order_delivered_customer_date'])\
-                    .dt.to_period('M')
-order_data['yearly']= order_data['yearly'].astype(str)
+order_data['yearly'] = pd.to_datetime(order_data['order_delivered_customer_date']).dt.to_period('M')
+order_data['yearly'] = order_data['yearly'].astype(str)
 
 
 # Finding different days of delivered and estimated times.
 
-order_data['diff_days']= order_data['delivered_time']-order_data['estimate_time']
-order_data['diff_days']= order_data['diff_days'].dt.days
+order_data['diff_days'] = order_data['delivered_time'] - order_data['estimate_time']
+order_data['diff_days'] = order_data['diff_days'].dt.days
 
 
+
+
+
+plt.figure(figsize=(20,10))
+sns.lineplot(x='weekly', y='diff_days', data=order_data, color="coral", linewidth=5,
+            markers=True,dashes=False, estimator='mean')
+
+plt.xlabel("Weeks", size=14)
+plt.ylabel("Difference Days", size=14)
+plt.title("Average Difference Days per Week",size=15, weight='bold')
 
 
 

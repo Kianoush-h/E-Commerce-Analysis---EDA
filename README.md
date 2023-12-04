@@ -14,6 +14,8 @@ Above analysis made by orders, geolocation, payments, seller, and products datas
 ![Image 2](./plots/ranking_state_orders.png)
 *The above graph shows the number of product orders purchased based on the states. According to that, São Paulo has the highest rate and there is a huge gap between the rest of the states.*
 
+![Image 3](./plots/diff_delivered_on_time.png)
+*Above graph shows that the earliest and latest deliveries. According to that, we can say that all deliveries made before their estimated date.*
 
 
 
