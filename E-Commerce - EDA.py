@@ -120,18 +120,25 @@ plt.title("Average Difference Days per Week",size=15, weight='bold')
 order_item_data = pd.read_csv('data/olist_order_items_dataset.csv')
 products_data = pd.read_csv('data/olist_products_dataset.csv')
 
-#Merge data
+# Merge data
 total_orders = pd.merge(order_data, order_item_data)
 product_orders = pd.merge(total_orders,products_data, on="product_id")
 product_orders.info()
 
 
+# Since the product_id value name is long, it needed to be shortened to make an analysis. 
+# With taking the last eight characters, uniqueness preserved.
+
+product_orders['product_id_shorten'] = product_orders['product_id'].str[-8:]
 
 
 
-
-
-
+#Plotting Top 10 Products
+plt.figure(figsize=(20,10))
+sns.countplot(x='product_id_shorten', data=product_orders, palette='gist_earth',
+             order=product_orders['product_id_shorten'].value_counts()[:10]\
+             .sort_values().index).set_title("Top 10 Products", fontsize=15,
+                                             weight='bold')
 
 
 
