@@ -18,4 +18,4 @@ Above analysis made by orders, geolocation, payments, seller, and products datas
 *Above graph shows that the earliest and latest deliveries. According to that, we can say that all deliveries made before their estimated date.*
 
 
-**The earliest deliveries have been made in October. It means that this month is the least intensive period in those years.
+* The earliest deliveries have been made in October. It means that this month is the least intensive period in those years.
