@@ -32,7 +32,8 @@ Above analysis made by orders, geolocation, payments, seller, and products datas
 
 
 
-
+![Image 6](./plots/Top_10_Seller_and_product.png)
+*Above graphs show the top products and top sellers category. While most selling product item belongs to the moveis_decoracao, most seller item belongs to ferramentas_jardim.*
 
 
 

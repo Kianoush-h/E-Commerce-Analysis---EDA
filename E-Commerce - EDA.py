@@ -175,6 +175,49 @@ plt.title("Top 10 Seller",size=14, weight='bold')
 
 
 
+'''
+Assuming for the orders' product category of these sellers, we can use 'product category' values. 
+Below table shows the Top 10 sellers category, and since they can sell multiple product types, 
+ garden tools are the most selling product of the best seller.
+'''
+
+
+seller_category = seller_products.groupby(['seller_id_shorten', 'product_category_name'])['seller_id_shorten'].count().sort_values(ascending=False).head(10)
+seller_category
+
+
+
+
+f, (ax1, ax2) = plt.subplots(2, 1, figsize=(20,15))
+group_category.plot.barh(ax=ax1, cmap='summer')
+seller_category.plot.barh(ax=ax2, cmap='autumn')
+
+ax1.set_title('Top10 Product', fontweight='bold')
+ax2.set_title('Top10 Seller', fontweight='bold')
+
+ax1.set_xlabel('Count', fontsize=15)
+ax1.set_ylabel('Product Name', fontsize=15)
+ax1.xaxis.set_tick_params(labelsize=12)
+ax1.yaxis.set_tick_params(labelsize=15)
+
+ax2.set_xlabel('Count', fontsize=15)
+ax2.set_ylabel('Product Name', fontsize=15)
+ax2.xaxis.set_tick_params(labelsize=12)
+ax2.yaxis.set_tick_params(labelsize=15)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
