@@ -45,14 +45,16 @@ m.scatter(lon, lat,zorder=10,alpha=0.5,color='tomato')
 
 
 plt.figure(figsize=(10,10))
-sns.countplot(x ='geolocation_state', data=geo_data, 
-              order=geo_data['geolocation_state'].value_counts().sort_values().index, 
+sns.countplot(x ='geolocation_state', data = geo_data, 
+              order = geo_data['geolocation_state'].value_counts().sort_values().index, 
               palette='icefire_r')
 
 
 
 
-
+# =============================================================================
+# Data Exploratory
+# =============================================================================
 
 
 
