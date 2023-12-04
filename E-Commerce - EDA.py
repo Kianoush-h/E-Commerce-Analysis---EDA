@@ -11,9 +11,50 @@ Email: haratiank2@gmail.com
 """
 
 import pandas as pd
+import numpy as np
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import conda
+from mpl_toolkits.basemap import Basemap
+
+
+
+
+# =============================================================================
+# Geo Exploratory
+# =============================================================================
+
+geo_data = pd.read_csv('data/olist_geolocation_dataset.csv')
+
+head = geo_data.head(10)
+
+
+lat = geo_data['geolocation_lat']
+lon = geo_data['geolocation_lng']
+
+plt.figure(figsize=(10,10))
+
+m = Basemap(llcrnrlat=-55.401805,llcrnrlon=-92.269176,urcrnrlat=13.884615,urcrnrlon=-27.581676)
+m.bluemarble()
+m.drawmapboundary(fill_color='#46bcec') # Make your map into any style you like
+m.fillcontinents(color='#f2f2f2',lake_color='#46bcec') # Make your map into any style you like
+m.drawcountries()
+m.scatter(lon, lat,zorder=10,alpha=0.5,color='tomato')
+
+
+
+plt.figure(figsize=(10,10))
+sns.countplot(x ='geolocation_state', data=geo_data, 
+              order=geo_data['geolocation_state'].value_counts().sort_values().index, 
+              palette='icefire_r')
+
+
+
+
+
+
+
 
 
 # Load all CSV files into a list of DataFrames
