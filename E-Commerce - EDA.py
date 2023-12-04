@@ -53,7 +53,7 @@ sns.countplot(x ='geolocation_state', data = geo_data,
 
 
 # =============================================================================
-# PART 1: Data Exploratory
+# Data Exploratory
 # =============================================================================
 
 order_data = pd.read_csv('data/olist_orders_dataset.csv')
@@ -64,7 +64,7 @@ order_data_head = order_data.head(10)
 
 
 # =============================================================================
-# PART 1-2: Feature Enginering with Time
+# PART 1: Feature Enginering with Time
 # =============================================================================
 
 '''' Since, missing values' proportion is around 3%, 
@@ -106,6 +106,39 @@ sns.lineplot(x='weekly', y='diff_days', data=order_data, color="coral", linewidt
 plt.xlabel("Weeks", size=14)
 plt.ylabel("Difference Days", size=14)
 plt.title("Average Difference Days per Week",size=15, weight='bold')
+
+
+
+
+
+# =============================================================================
+# PART 2: Customer Top 10 Product
+# =============================================================================
+
+
+# Upload Olist_Order_Items and Product Data
+order_item_data = pd.read_csv('data/olist_order_items_dataset.csv')
+products_data = pd.read_csv('data/olist_products_dataset.csv')
+
+#Merge data
+total_orders = pd.merge(order_data, order_item_data)
+product_orders = pd.merge(total_orders,products_data, on="product_id")
+product_orders.info()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

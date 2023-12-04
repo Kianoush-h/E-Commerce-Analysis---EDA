@@ -19,3 +19,4 @@ Above analysis made by orders, geolocation, payments, seller, and products datas
 
 
 * The earliest deliveries have been made in October. It means that this month is the least intensive period in those years.
+* Latest deliveries have been made at the end of June and beginning of August. It means that this time is the most intensive period in those years.
