@@ -53,8 +53,44 @@ sns.countplot(x ='geolocation_state', data = geo_data,
 
 
 # =============================================================================
-# Data Exploratory
+# PART 1: Data Exploratory
 # =============================================================================
+
+order_data = pd.read_csv('data/olist_orders_dataset.csv')
+
+order_data.isnull().sum()
+
+order_data_head = order_data.head(10)
+
+
+# =============================================================================
+# PART 2: Feature Enginering with Time
+# =============================================================================
+
+'''' Since, missing values' proportion is around 3%, 
+Null Values from customer date feature will be filled with forward-fill method.
+ This method, propagate the previous value forward'''
+ 
+ 
+order_data['order_delivered_customer_date'] = order_data['order_delivered_customer_date'].fillna(method='ffill')
+order_data['order_delivered_customer_date'].isnull().sum()
+
+
+order_data['delivered_time'] = pd.to_datetime(order_data['order_delivered_customer_date'], format='%Y-%m-%d').dt.date
+order_data['estimate_time'] = pd.to_datetime(order_data['order_estimated_delivery_date'], format='%Y-%m-%d').dt.date
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
