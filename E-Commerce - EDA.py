@@ -75,15 +75,26 @@ Null Values from customer date feature will be filled with forward-fill method.
 order_data['order_delivered_customer_date'] = order_data['order_delivered_customer_date'].fillna(method='ffill')
 order_data['order_delivered_customer_date'].isnull().sum()
 
+# Delivered time and Estimate time features will be created.
 
 order_data['delivered_time'] = pd.to_datetime(order_data['order_delivered_customer_date'], format='%Y-%m-%d').dt.date
 order_data['estimate_time'] = pd.to_datetime(order_data['order_estimated_delivery_date'], format='%Y-%m-%d').dt.date
 
+# Weekly feature created based on order delivered customer date
+
+order_data['weekly']=pd.to_datetime(order_data['order_delivered_customer_date'],
+                                    format='%Y-%m-%d').dt.week
+# Yearly feature created based on order delivered customer date
+
+order_data['yearly']=pd.to_datetime(order_data['order_delivered_customer_date'])\
+                    .dt.to_period('M')
+order_data['yearly']= order_data['yearly'].astype(str)
 
 
+# Finding different days of delivered and estimated times.
 
-
-
+order_data['diff_days']= order_data['delivered_time']-order_data['estimate_time']
+order_data['diff_days']= order_data['diff_days'].dt.days
 
 
 
